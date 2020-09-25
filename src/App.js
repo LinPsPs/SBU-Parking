@@ -13,7 +13,8 @@ class App extends Component{
   axios.get(url)
     .then(function (response) {
       let data =response.data
-      alert(data);
+      console.log(data);
+      
     })
     .catch(function (error) {
       console.log(error);
