@@ -16,16 +16,16 @@ lot_limit = [3, 5, 5, 3]
 
 @server.route('/<time>')
 def process(time):
-    counts = {1: 100, 2: 100, 3: 100, 4: 100}
+    counts = {1: 29, 2: 26, 3: 75, 4: 51}
     for i in range(4):
         if int(time) <= lot_limit[i]:
             img_name = '../img/' + lot[i] + '_' + time + '.jpg'
             im = cv2.imread(img_name)
             bbox, label, conf = cv.detect_common_objects(im)
             output_image = draw_bbox(im, bbox, label, conf)
-            plt.subplots()
-            plt.imshow(output_image)
-            plt.show()
+            # plt.subplots()
+            # plt.imshow(output_image)
+            # plt.show()
             count = label.count('car')
             counts[i+1] -= count
         else:
