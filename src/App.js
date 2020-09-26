@@ -12,7 +12,7 @@ import './assets/css/main.css'
 class App extends Component {
 
   state = {
-    cars:{0:10, 1:10, 2:10, 3:10, 4:10, 5:10, 6:10, 7:10},
+    cars:{1: 29, 2: 26, 3: 75, 4: 51},
     time:1,
     disabled: false,
   }

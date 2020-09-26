@@ -25,3 +25,5 @@ yarn-error.log*
 #environment
 server/venv
 server/.idea
+
+.idea/
