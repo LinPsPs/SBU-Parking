@@ -6,7 +6,6 @@ import axios from 'axios' ;
 
 import './assets/css/font-awesome.min.css'
 import './assets/css/main.css'
-import avatar from "./images/avatar.jpg" 
 // "assets/js/jquery.min.js"
 // "assets/js/jquery.poptrox.min.js"
 // "assets/js/skel.min.js"
