@@ -12,21 +12,25 @@ import './assets/css/main.css'
 class App extends Component {
 
   state = {
-	  cars:{0:10, 1:10, 2:10, 3:10, 4:10, 5:10, 6:10, 7:10}
+    cars:{0:10, 1:10, 2:10, 3:10, 4:10, 5:10, 6:10, 7:10},
+    time:1,
+    disabled: false,
   }
 
+  
   handleProcess=(parkingLot)=>{
-	// alert("hahaha");
-	let  url="http://127.0.0.1:5000/"+parkingLot
-  	axios.get(url)
-    .then(function (response) {
-	  let data =response.data
-	  this.setState(state=>({
-		  ...state,
-		  cars:{...this.state.cars, [parkingLot]: data}
-		}));
-    })
-    .catch(function (error) {
+    this.setState({disabled: true})
+    // alert("hahaha");
+    let  url="http://127.0.0.1:5000/"+parkingLot
+    axios.get(url).then((response) => {
+      let data =response.data
+      console.log(data)
+      this.setState({
+        cars: data,
+        time: this.state.time >= 6 ? 1 : this.state.time + 1,
+        disabled: false
+      });
+    }).catch(function (error) {
       console.log(error);
     });
   }
@@ -45,38 +49,53 @@ class App extends Component {
 			<section className="right">
 				<section class="thumbnails">
 					<div>
-						<a onClick={()=>this.handleProcess(1)}>
+						<a style={{width:"345%", backgroundColor:'#ffff0036'}} >
 							<img src="images/thumbs/01.jpg" alt=""/>
-							<h3>{this.state.cars[1]}</h3>
+							<h3>{this.state.cars[1] == -1 ? 'No more data at this timestamp' : 'Parking lots left: ' + this.state.cars[1]}</h3>
 						</a>
-						<a onClick={()=>this.handleProcess(2)}>
+						<a style={{width:"345%", backgroundColor:'#0000ff33'}} >
 							<img src="images/thumbs/02.jpg" alt=""/>
-							<h3>{this.state.cars[2]}</h3>
+							<h3>{this.state.cars[2] == -1 ? 'No more data at this timestamp' : 'Parking lots left: ' + this.state.cars[2]}</h3>
 						</a>
-					</div>
-					<div>
-						<a onClick={()=>this.handleProcess(3)}>
+            <a style={{width:"345%", backgroundColor:'#ff000040'}} >
 							<img src="images/thumbs/03.jpg" alt=""/>
-							<h3>{this.state.cars[3]}</h3>
+							<h3>{this.state.cars[3] == -1 ? 'No more data at this timestamp' : 'Parking lots left: ' + this.state.cars[3]}</h3>
 						</a>
-						<a onClick={()=>this.handleProcess(4)}>
-							<img src="images/thumbs/04.jpg" alt=""/>
-							<h3>{this.state.cars[4]}</h3>
-						</a>
-						<a onClick={()=>this.handleProcess(5)}>
-							<img src="images/thumbs/05.jpg" alt=""/>
-							<h3>{this.state.cars[5]}</h3>
+            <a style={{width:"345%", backgroundColor:'#00800033'}} >
+							<img src="images/thumbs/06.jpg" alt=""/>
+							<h3>{this.state.cars[4] == -1 ? 'No more data at this timestamp' : 'Parking lots left: ' + this.state.cars[4]}</h3>
 						</a>
 					</div>
 					<div>
-						<a onClick={()=>this.handleProcess(6)}>
-							<img src="images/thumbs/06.jpg" alt=""/>
-							<h3>{this.state.cars[6]}</h3>
+						<a style={{opacity:"0%"}}>
+							<img src="images/thumbs/03.jpg" alt=""/>
+							<h3>2</h3>
 						</a>
-						<a onClick={()=>this.handleProcess(7)}>
-							<img src="images/thumbs/07.jpg" alt=""/>
-							<h3>{this.state.cars[7]}</h3>
+						<a style={{opacity:"0%"}}>
+							<img src="images/thumbs/04.jpg" alt=""/>
+							<h3>2</h3>
 						</a>
+						<a style={{opacity:"0%"}}>
+							<img src="images/thumbs/05.jpg" alt=""/>
+							<h3>2</h3>
+						</a>
+            <a style={{opacity:"0%"}}>
+							<img src="images/thumbs/05.jpg" alt=""/>
+							<h3>2</h3>
+						</a>
+            <a >
+              <button 
+                onClick={()=>this.handleProcess(this.state.time)}
+                disabled={this.state.disabled}
+                style={{width: 'inherit'}}>
+                click here
+              </button>
+              <img src="images/thumbs/07.jpg" alt=""/>
+							{/* <h3>Click here</h3> */}
+						</a>
+					</div>
+					<div>
+						
 					</div>
 				</section>
 				<footer id="footer">
