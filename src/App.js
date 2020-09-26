@@ -6,6 +6,8 @@ import axios from 'axios' ;
 
 import './assets/css/font-awesome.min.css'
 import './assets/css/main.css'
+
+import Iframe from 'react-iframe'
 // "assets/js/jquery.min.js"
 // "assets/js/jquery.poptrox.min.js"
 // "assets/js/skel.min.js"
@@ -74,20 +76,15 @@ class App extends Component {
 							<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
 						</ul> */}
 					</header>
-
+					
+					<Iframe url="https://www.google.com/maps/d/u/0/embed?mid=1i4biAa2_6scLAlp-hqMifZYXqSiLW61L"
+						width="800px"
+						height="800px"
+					/>
 					<section id="main">
 
-							<section class="thumbnails">
-								<div>
-									<a>
-										<img src="images/thumbs/01.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-									<a>
-										<img src="images/thumbs/02.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-								</div>
+							<section class="thumbnails" left="80%">
+								
 								<div>
 									<a>
 										<img src="images/thumbs/03.jpg" alt="" />
@@ -102,25 +99,20 @@ class App extends Component {
 										<h3>Lorem ipsum dolor sit amet</h3>
 									</a>
 								</div>
-								<div>
-									<a>
-										<img src="images/thumbs/06.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-									<a>
-										<img src="images/thumbs/07.jpg" alt="" />
-										<h3>Lorem ipsum dolor sit amet</h3>
-									</a>
-								</div>
+								
 							</section>
 
 					</section>
 
+					
+
 					<footer id="footer">
 						<p>&copy; SBU Parking</p>
 					</footer>
+					
+					
 
-			</div>
+		</div>
     )
   }
 }
