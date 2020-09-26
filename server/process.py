@@ -11,7 +11,7 @@ CORS(server)
 # counts = [10, 10, 10, 10, 10, 10, 10]
 
 lot = ['SP', 'CP', 'GP', 'EP']
-lot_limit = [3, 5, 5, 2]
+lot_limit = [3, 5, 5, 3]
 # lot is 1 based
 
 @server.route('/<time>')
