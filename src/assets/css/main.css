@@ -2550,6 +2550,21 @@
 				opacity: 1.0;
 			}
 
+
+/*split*/
+.left{
+	float: left;
+	width: 45%;
+	height: 20%;
+}
+.photo{
+	max-width: 100%;
+	max-height: 100%;
+}
+.right{
+	float: right;
+	width: 45%;
+}
 /* Wrapper */
 
 	#wrapper {
